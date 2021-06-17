@@ -3,6 +3,7 @@ from selenium.webdriver.common.keys import Keys
 import argparse
 import json
 import time
+import os
 
 
 def main():
@@ -38,10 +39,13 @@ def main():
     driver.close()
 
 
-    with open(filename, encoding='utf-8') as file:
-        titles = [ line.strip() for line in file.readlines() ]
-        titles_set = set(titles)
+    if os.path.exists(filename):
+        with open(filename, encoding='utf-8') as file:
+            titles = [ line.strip() for line in file.readlines() ]
+    else:
+        titles = []
 
+    titles_set = set(titles)
 
     for title in reversed(new_titles):
         if title not in titles_set:

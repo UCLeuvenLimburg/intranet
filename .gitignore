@@ -1,5 +1,5 @@
 settings.json
-titles.txt
+*.txt
 
 
 # Created by https://www.toptal.com/developers/gitignore/api/python
